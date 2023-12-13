@@ -1,0 +1,50 @@
+﻿@model List<EcommerceTeckits.Models.Actor>
+@{
+    ViewData["Title"] = "List Of Actors";
+}
+
+<html>
+    <head></head>
+    <body>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <table class="table">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Profile Picture</th>
+                            <th>Full Name</th>
+                            <th>Biography</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                <img class="rounded-circle" src="@item.ProfilePictureUrl" alt="@item.ActorFullName" style="max-width:150px">
+                            </td>
+                            <td class="align-middle">
+                                @item.ActorFullName
+                            </td>
+                            <td class="align-middle">
+                                @item.ActorBio
+                            </td>
+                            <td class="align-middle">
+                                <a asp-controller="Actors" asp-action="Edit" asp-route-ID="@item.ActorId" class="btn btn-outline-primary"><i class="fas fa-edit">Edit</i></a>
+                                <a asp-controller="Actors" asp-action="Details" asp-route-ID="@item.ActorId" class="btn btn-outline-info"><i class="fas fa-eye">Details</i></a>
+                                <a asp-controller="Actors" asp-action="Delete" asp-route-ID="@item.ActorId" class="btn btn-danger"><i class="fas fa-trash-alt">Delete</i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="text-white">
+        <a href="Actors/Create" style="position:fixed; right:25px; bottom:25px; text-decoration: none;" class="btn btn-success">
+             <i class="fas fa-plus-circle"></i> Add New
+          </a>
+        </div>
+    </body>
+</html>

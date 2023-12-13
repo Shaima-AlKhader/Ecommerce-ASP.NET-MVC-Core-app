@@ -1,0 +1,45 @@
+﻿@model List<EcommerceTeckits.Models.Cinema>
+@{
+    ViewData["Title"] = "List Of Cinemas";
+}
+
+<html>
+<head>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Cinema Logo</th>
+                        <th>Name</th>
+                        <th>Descriotion</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                <img class="rounded-circle" src="@item.Logo" alt="@item.CinemaName" style="max-width:150px">
+                            </td>
+                            <td class="align-middle">
+                                @item.CinemaName
+                            </td>
+                            <td class="align-middle">
+                                @item.Description
+                            </td>
+                            <td class="align-middle">
+                                <a asp-controller="Cinemas" asp-action="Edit" asp-route-ID="@item.CinemaId" class="btn btn-outline-primary"><i class="fas fa-edit">Edit</i></a>
+                                <a asp-controller="Cinemas" asp-action="Delete" asp-route-ID="@item.CinemaId" class="btn btn-danger"><i class="fas fa-trash-alt">Delete</i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿@model EcommerceTeckits.Models.Producer
+
+@{
+    ViewData["Title"] = "Add New Producer";
+}
+<html>
+    <head></head>
+    <body>
+  
+      <div class="row text">
+         <div class="col-md-8 offset-2">
+            <h1>Add a new Producer</h1>
+            <form asp-action="Create">
+                  <div class="mb-3 text-center">
+                    <img class="border-info rounded-circle" style="max-width:150px" id="ProfilePicturePreview" />
+                  </div>
+                  <div class="mb-3">
+                    Profile Picture Url
+                    <span class="text-danger">*</span>
+                    <input type="text" asp-for="ProfilePictureUrl" class="form-control" />
+                    <span asp-validation-for="ProfilePictureUrl" class="text-danger"></span>
+                  </div>
+                  <div class="mb-3">
+                    Full Name
+                    <span class="text-danger">*</span>
+                    <input type="text" asp-for="ProducerFullName" class="form-control" />
+                    <span asp-validation-for="ProducerFullName" class="text-danger"></span>
+                  </div>
+                  <div class="mb-3">
+                    Bio
+                    <span class="text-danger">*</span>
+                    <input type="text" asp-for="ProducerBio" class="form-control" />
+                    <span asp-validation-for="ProducerBio" class="text-danger"></span>
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="submit" value="Create" class="btn btn-outline-success " style="float:right" />
+                    <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                  </div>
+            </form>
+         </div>
+      </div>
+     
+    </body>
+</html>
+
+@section Scripts{
+     <script>
+         $(document).ready(function(){
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#ProfilePictureUrl").val();
+         })
+
+        $("#ProfilePictureUrl").on("change", function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src=$(this).val();
+           })
+     </script>
+    
+}
