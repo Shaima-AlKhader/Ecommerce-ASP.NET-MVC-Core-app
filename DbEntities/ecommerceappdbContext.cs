@@ -27,7 +27,7 @@ namespace EcommerceTickets.DbEntities
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-BEB56J5;Database=ecommerce-app-db;Trusted_Connection=True; User Id=sa; password=12345; Integrated security=False;");
+                optionsBuilder.UseSqlServer("Server=[your machine name];Database=[your database name];Trusted_Connection=True; User Id=[your User Id]; password=[your passwors]; Integrated security=False;");
             }
         }
 
